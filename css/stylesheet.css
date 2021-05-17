@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* main wrapper */
+.main_div{
+    background-color: grey;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* score bar on top, both the wrapper and bar*/
+.scoreBarContainer{
+    width: 40%;
+    background-color: greenyellow;
+    margin-bottom: 7vh;
+    text-align: center;
+    position: fixed;
+    transform: translateY(-35vh);
+}
+
+.scoreBar{ 
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+    width: 90%;
+    background-color: pink;
+}
+
+/* main clicking button wrapper */
+.mainButton{
+    position: relative; /* might need absolute to keep it in place when changing window size, depends if the animation needs relative or not*/
+    width: 40%;
+    height: 65vh;
+}
+
+/* the outher white circle band, pink triangles inside of this*/
+.outerCircle{
+    position: absolute;
+    border-radius: 50%;
+    width: 100%;
+    padding-bottom: 100%;
+    background: white;
+}
+
+.innerCircle{
+    top: ;
+    right: 0;
+    position: relative;
+    border-radius: 50%;
+    width: 90%;
+    padding-bottom: 90%;
+    background-color: pink;
+}
+
+svg{
+    width: 10em;
+}
