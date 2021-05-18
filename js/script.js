@@ -122,24 +122,19 @@ var triangleArray = [];
 
 // loop creating 50 seperate triangle objects with individual ?stats?
 for (var i = 0; i < 50; i++) {
-    var x = getRandomNumber(300, 700);
+    var x = getRandomNumber(200, 900);
     var y = 600;
     var dy = getRandomNumber(0.5, 1);
     var color = colorArray[Math.floor(Math.random() * colorArray.length)]; 
     triangleArray.push(new Triangle(x, y, dy, color));
 };
 
-
-
 // randomizes where on the x-axis the triangle will be drawn
 function getRandomNumber(min, max) {
     return Math.random() * (max - min) + min;
 }
 
-console.log(triangleArray)
-
 // the animation funtion moving triangles up and down 
-
 function scroll() {
     requestAnimationFrame(scroll);
     c.clearRect(0, 0, innerWidth, innerHeight);
@@ -149,24 +144,11 @@ function scroll() {
     for (var i = 0; i < triangleArray.length; i++){
         triangleArray[i].update();
     }
-
-
-    
-   
 }
 
 scroll();
 
 
-// for loop for the tirangles, have it spawn a new one every time one goes over the limit and despawns
-// for () {
-//     var speedY = Math.random(); // within certain limits, the speed the triangels go up
-    
-//     var width = Math.random(); // within certain limits, 
-//     var color = // choosing a random color out of a array of x amounts of colors into fill.style
-
-
-// }
 
 
 // // circle 
