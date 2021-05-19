@@ -37,6 +37,7 @@ if (savegame !== null) {
 
 
 // canvas 
+//
 
 var canvas = document.querySelector('canvas')
 
@@ -45,7 +46,7 @@ canvas.height = window.innerHeight
 
 var c = canvas.getContext('2d');
 
-c.fillStyle = 'rgba(255, 0, 0, 0.3)';
+c.fillStyle = 'rgba(255, 0, 0, 0.2)';
 
 c.fillRect(200, 200, 100, 100)
 c.fillRect(400, 100, 100, 100)
@@ -71,6 +72,7 @@ c.fillRect(100, 500, 100, 100)
 // }
 
 // drawTriangle();
+
 
 
  
@@ -102,7 +104,7 @@ function Triangle(x, y, dy, color) {
 
     this.update = function() {
         if (this.y < 0) {
-            this.y = 600
+            this.y = 930
         }
         this.y += this.dy;
 
@@ -114,7 +116,7 @@ function Triangle(x, y, dy, color) {
 
 // array of colors given to the triangles drawn
 var colorArray = [
-    '#e25f99', '#ec6aa4','#e6639d','#e3609a', '#e967a1', '#fe7cb6','#f16fa9', '#f774ae', '#e5639d', '#ed6ba5'
+    '#e25f99', '#ec6aa4','#e6639d','#e3609a', '#e967a1', '#fe7cb6', '#f774ae', '#e5639d', '#ed6ba5'
 ]
 
 // stores all of the arrays drawn in the for loop
@@ -122,9 +124,9 @@ var triangleArray = [];
 
 // loop creating 50 seperate triangle objects with individual ?stats?
 for (var i = 0; i < 50; i++) {
-    var x = getRandomNumber(200, 900);
-    var y = 600;
-    var dy = getRandomNumber(0.5, 1);
+    var x = getRandomNumber(300, 1100);
+    var y = 930;
+    var dy = getRandomNumber(0.1, 1);
     var color = colorArray[Math.floor(Math.random() * colorArray.length)]; 
     triangleArray.push(new Triangle(x, y, dy, color));
 };
@@ -139,7 +141,17 @@ function scroll() {
     requestAnimationFrame(scroll);
     c.clearRect(0, 0, innerWidth, innerHeight);
 
-  
+    // this draws the circle once with the middle being transparent
+    for (var q = 0; q < 1; q++){
+        c.beginPath();
+        c.arc(900, 500, 400, Math.PI * 2, false);
+        c.strokeStyle = "white"; 
+        c.fillStyle = 'rgba(0,0,0,0)'; 
+        c.fill()
+        c.stroke();
+        c.closePath(); 
+        // c.clip();  
+    }
 
     for (var i = 0; i < triangleArray.length; i++){
         triangleArray[i].update();
@@ -152,6 +164,3 @@ scroll();
 
 
 // // circle 
-// c.beginPath();
-// c.arc(600, 600, 40, Math.PI * 2, false);
-// c.stroke();
